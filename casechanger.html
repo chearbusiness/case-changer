@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title Case Converter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      max-width: 600px;
+      margin: auto;
+    }
+    textarea, input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Title Case Converter</h2>
+  
+  <textarea id="inputText" rows="4" placeholder="Enter your content here..."></textarea>
+  
+  <button onclick="convertToTitleCase()">Convert to Title Case</button>
+  
+  <h3>Output:</h3>
+  <textarea id="outputText" rows="4" readonly></textarea>
+
+  <script>
+    function convertToTitleCase() {
+      let text = document.getElementById("inputText").value;
+      let words = text.toLowerCase().split(" ");
+      for (let i = 0; i < words.length; i++) {
+        if (words[i]) {
+          words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+        }
+      }
+      document.getElementById("outputText").value = words.join(" ");
+    }
+  </script>
+</body>
+</html>
